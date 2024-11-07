@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Découverte CréaLab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Découvre le CréaLab</h1>
+    <div id="question-container">
+      <p id="question">Souhaites-tu apprendre à utiliser une imprimante 3D ?</p>
+      <button class="btn" onclick="answer(true)">Oui</button>
+      <button class="btn" onclick="answer(false)">Non</button>
+    </div>
+    <div id="recommendation-container" style="display:none;">
+      <h2>Projets recommandés :</h2>
+      <ul id="recommendations-list"></ul>
+      <button class="btn" onclick="restart()">Recommencer</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -14,8 +14,6 @@ body {
   background: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 80%;
-  max-width: 600px;
 }
 
 h1, h2 {
@@ -41,20 +39,27 @@ h1, h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .card {
-  background-color: #ffffff;
+  background-color: #f9f9f9;
+  color: #333;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 15px;
   width: 200px;
   text-align: center;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.card p {
-  margin: 0;
-  font-size: 14px;
-  color: #333;
+.card a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+.card:hover {
+  background-color: #4CAF50;
+  color: white;
 }

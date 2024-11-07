@@ -23,14 +23,64 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const questions = [
-        { question: "Souhaites-tu apprendre à utiliser une imprimante 3D ?", yes: ["Imprimer un petit objet personnalisé", "Créer un modèle 3D simple"], no: [] },
-        { question: "Veux-tu apprendre à faire de l'IOT ?", yes: ["Créer une lampe connectée", "Développer un capteur de température connecté"], no: [] },
-        { question: "Es-tu intéressé par la soudure ?", yes: ["Assembler un petit circuit", "Créer une boîte à sons"], no: [] },
-        { question: "Es-tu curieux de découvrir la robotique ?", yes: ["Assembler un robot simple", "Programmer un robot pour suivre une ligne"], no: [] },
-        { question: "Veux-tu apprendre à programmer avec Arduino ?", yes: ["Créer un capteur de mouvement", "Programmer une LED clignotante"], no: [] },
-        { question: "Veux-tu fabriquer un objet utile avec une imprimante 3D ?", yes: ["Créer un porte-clés personnalisé", "Fabriquer un support pour téléphone"], no: [] }
-      ];
+const questions = [
+  {
+    question: "Souhaites-tu apprendre à utiliser une imprimante 3D ?",
+    yes: [
+      { text: "Imprimer un petit objet personnalisé", link: "https://www.youtube.com/watch?v=Bxt-bZ8Gqg4" },
+      { text: "Créer un modèle 3D simple", link: "https://www.youtube.com/watch?v=pQw6Y1bOWiU" }
+    ],
+    no: []
+  },
+  {
+    question: "Veux-tu apprendre à faire de l'IOT ?",
+    yes: [
+      { text: "Créer une lampe connectée", link: "https://youtube.com/watch?v=Z2sAVM3pwFM" },
+      { text: "Développer un capteur de température connecté", link: "https://www.youtube.com/watch?v=XszKwjwc6zI" }
+    ],
+    no: []
+  },
+  {
+    question: "Es-tu intéressé par la soudure ?",
+    yes: [
+      { text: "Assembler un petit circuit", link: "https://www.youtube.com/watch?v=ELDEzPeMVkw" },
+    ],
+    no: []
+  },
+  {
+    question: "Es-tu curieux de découvrir la robotique ?",
+    yes: [
+      { text: "Assembler un robot simple", link: "https://www.youtube.com/watch?v=kgSz7FtdtOA" },
+      { text: "Programmer un robot pour suivre une ligne", link: "https://www.youtube.com/watch?v=ZrekeKpqOQo" }
+    ],
+    no: []
+  },
+  {
+    question: "Veux-tu apprendre à programmer avec Arduino ?",
+    yes: [
+      { text: "Créer un capteur de mouvement", link: "https://www.youtube.com/watch?v=zRmcF2HTDbU" },
+      { text: "Programmer une LED clignotante", link: "https://www.youtube.com/watch?v=sgEYN38yC1w&t=352s" }
+    ],
+    no: []
+  },
+  {
+    question: "Veux-tu fabriquer un objet utile avec une imprimante 3D ?",
+    yes: [
+      { text: "Créer un porte-clés personnalisé", link: "https://youtube.com/watch?v=xfyP2hYB2x0" },
+      { text: "Fabriquer un support pour téléphone", link: "https://www.youtube.com/watch?v=oQ5G04beBng" }
+    ],
+    no: []
+  },
+  {
+    question: "Es-tu intéressé par l'impression de circuits électroniques ?",
+    yes: [
+      { text: "Imprimer un PCB", link: "https://www.youtube.com/watch?v=T0OLIYR2SpM" },
+      { text: "Concevoir un circuit imprimé", link: "https://www.youtube.com/watch?v=iJp_fMtYsZo" }
+    ],
+    no: []
+  }
+];
+
 
       let currentQuestionIndex = 0;
       let recommendations = [];
@@ -63,7 +113,7 @@
         recommendations.forEach(recommendation => {
           const card = document.createElement("div");
           card.className = "card";
-          card.innerHTML = `<p>${recommendation}</p>`;
+          card.innerHTML = `<a href="${recommendation.link}" target="_blank">${recommendation.text}</a>`;
           list.appendChild(card);
         });
       }

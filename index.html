@@ -16,7 +16,7 @@
     </div>
     <div id="recommendation-container" style="display:none;">
       <h2>Projets recommandés :</h2>
-      <ul id="recommendations-list"></ul>
+      <div id="recommendations-list" class="cards-container"></div>
       <button class="btn">Recommencer</button>
     </div>
   </div>
@@ -24,21 +24,12 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const questions = [
-        {
-          question: "Souhaites-tu apprendre à utiliser une imprimante 3D ?",
-          yes: ["Imprimer un petit objet personnalisé", "Créer un modèle 3D simple"],
-          no: []
-        },
-        {
-          question: "Veux-tu apprendre à faire de l'IOT ?",
-          yes: ["Créer une lampe connectée", "Développer un capteur de température connecté"],
-          no: []
-        },
-        {
-          question: "Es-tu intéressé par la soudure ?",
-          yes: ["Assembler un petit circuit", "Créer une boîte à sons"],
-          no: []
-        }
+        { question: "Souhaites-tu apprendre à utiliser une imprimante 3D ?", yes: ["Imprimer un petit objet personnalisé", "Créer un modèle 3D simple"], no: [] },
+        { question: "Veux-tu apprendre à faire de l'IOT ?", yes: ["Créer une lampe connectée", "Développer un capteur de température connecté"], no: [] },
+        { question: "Es-tu intéressé par la soudure ?", yes: ["Assembler un petit circuit", "Créer une boîte à sons"], no: [] },
+        { question: "Es-tu curieux de découvrir la robotique ?", yes: ["Assembler un robot simple", "Programmer un robot pour suivre une ligne"], no: [] },
+        { question: "Veux-tu apprendre à programmer avec Arduino ?", yes: ["Créer un capteur de mouvement", "Programmer une LED clignotante"], no: [] },
+        { question: "Veux-tu fabriquer un objet utile avec une imprimante 3D ?", yes: ["Créer un porte-clés personnalisé", "Fabriquer un support pour téléphone"], no: [] }
       ];
 
       let currentQuestionIndex = 0;
@@ -48,7 +39,7 @@
       if (restartButton) {
         restartButton.addEventListener("click", restart);
       }
-    
+
       function answer(userResponse) {
         const currentQuestion = questions[currentQuestionIndex];
         if (userResponse && currentQuestion.yes.length > 0) {
@@ -70,9 +61,10 @@
         const list = document.getElementById("recommendations-list");
         list.innerHTML = ""; // clear previous recommendations
         recommendations.forEach(recommendation => {
-          const listItem = document.createElement("li");
-          listItem.textContent = recommendation;
-          list.appendChild(listItem);
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `<p>${recommendation}</p>`;
+          list.appendChild(card);
         });
       }
 
@@ -84,7 +76,6 @@
         document.getElementById("recommendation-container").style.display = "none";
       }
 
-      // Attacher les événements après que le DOM soit chargé
       document.querySelectorAll('.btn').forEach(button => {
         button.addEventListener('click', function() {
           const userResponse = button.innerText === 'Oui';
